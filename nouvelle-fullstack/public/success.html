@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order confirmed — Nouvelle by AK</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;1,400&family=Inter:wght@400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .confirm{ min-height:80vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:40px 24px; }
+  .confirm h1{ font-family:'Fraunces',serif; font-style:italic; font-weight:500; font-size:clamp(32px,5vw,52px); margin-bottom:16px; }
+  .confirm p{ opacity:0.75; max-width:420px; margin-bottom:28px; }
+  .confirm .order-id{ font-family:'Space Mono',monospace; font-size:13px; background:var(--white); padding:8px 16px; border-radius:100px; margin-bottom:28px; }
+</style>
+</head>
+<body>
+  <div class="confirm">
+    <h1>you're all set ✦</h1>
+    <p>Your payment went through and your order is confirmed. A confirmation email is on its way — check your inbox (and spam, just in case).</p>
+    <p class="order-id" id="orderIdLabel">Order</p>
+    <a href="/" class="btn btn--primary">back to shop →</a>
+  </div>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const orderId = params.get("order");
+    if (orderId) document.getElementById("orderIdLabel").textContent = `Order #${orderId}`;
+  </script>
+</body>
+</html>
